@@ -16,23 +16,23 @@ class IsistemCore
 		# code...
 	}
 
-	function Connect(){
-		define( 'MYSQL_HOST', 'localhost' );
-		define( 'MYSQL_USER', 'negoplay_negoplay' );
-		define( 'MYSQL_PASSWORD', 'wPHofwg!VyBJ' );
-		define( 'MYSQL_DB_NAME', 'negoplay_isistem' );
+	// function Connect(){
+	// 	define( 'MYSQL_HOST', 'localhost' );
+	// 	define( 'MYSQL_USER', 'negoplay_negoplay' );
+	// 	define( 'MYSQL_PASSWORD', 'wPHofwg!VyBJ' );
+	// 	define( 'MYSQL_DB_NAME', 'negoplay_isistem' );
 
-		try{
-		    $this->PDO = new PDO( 'mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB_NAME, MYSQL_USER, MYSQL_PASSWORD );
-		    $this->PDO->exec("SET character_set_results = 'ISO-8859-1'");
-		    $this->PDO->exec("SET names = 'ISO-8859-1'");
-		    $this->PDO->exec("SET SQL_MODE='ALLOW_INVALID_DATES';");
-		    //$this->PDO->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-		}
-		catch ( PDOException $e ){
-		    echo 'Erro ao conectar com o MySQL: ' . $e->getMessage();
-		}
-	}
+	// 	try{
+	// 	    $this->PDO = new PDO( 'mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB_NAME, MYSQL_USER, MYSQL_PASSWORD );
+	// 	    $this->PDO->exec("SET character_set_results = 'ISO-8859-1'");
+	// 	    $this->PDO->exec("SET names = 'ISO-8859-1'");
+	// 	    $this->PDO->exec("SET SQL_MODE='ALLOW_INVALID_DATES';");
+	// 	    //$this->PDO->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+	// 	}
+	// 	catch ( PDOException $e ){
+	// 	    echo 'Erro ao conectar com o MySQL: ' . $e->getMessage();
+	// 	}
+	// }
 
 	function Query($sql){
 		return $this->PDO->query($sql);
