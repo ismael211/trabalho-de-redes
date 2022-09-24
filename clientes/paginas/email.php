@@ -141,7 +141,7 @@
     $(document).ready(function() {
 
         $("#enviar").click(function(e) {
-            alert('asdfasd');
+            
             var email = document.getElementById('email').value;
             var assunto = document.getElementById('assunto').value;
             var mensagem = document.getElementById('mensagem').value;
@@ -155,7 +155,7 @@
                 data: dados,
                 success: function(result) {
 
-                   alert(result);
+                   console.log(result);
 
                 },
             });
