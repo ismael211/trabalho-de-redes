@@ -1,0 +1,5 @@
+{
+    "require": {
+        "ctodobom/api-inter": "dev-master"
+    }
+}
