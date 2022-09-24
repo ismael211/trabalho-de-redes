@@ -11,11 +11,17 @@ if(isset($_POST['email'])){
     }elseif($_POST['mensagem']==''){
         echo 'error||Por favor digite uma mensagem.';
     }else{
-        
+        $email = $_POST['email'];
+        $assunto = $_POST['assunto'];
+        $mensagem = $_POST['mensagem'];
+
+        envia_Email($email, $assunto, $mensagem);
     }
 
 }else{
-    echo 'Você não tem permissão para acessar esta página.';
+    ?>
+    <h1>Você não tem permissão para acessar esta página.</h1>
+    <?php
     exit();
 }
 

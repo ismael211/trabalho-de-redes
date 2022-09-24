@@ -40,6 +40,10 @@
     <link rel="stylesheet" type="text/css" href="../../app-assets/css/pages/app-email.css">
     <!-- END: Page CSS-->
 
+    <script src="../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+    <script src="../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+
+
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
     <!-- END: Custom CSS-->
@@ -137,6 +141,7 @@
     $(document).ready(function() {
 
         $("#enviar").click(function(e) {
+            alert('asdfasd');
             var email = document.getElementById('email').value;
             var assunto = document.getElementById('assunto').value;
             var mensagem = document.getElementById('mensagem').value;
@@ -149,7 +154,9 @@
                 url: 'envia_email.php',
                 data: dados,
                 success: function(result) {
-                    alert(result)
+
+                   alert(result);
+
                 },
             });
         })
