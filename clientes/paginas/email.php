@@ -34,15 +34,19 @@
     <link rel="stylesheet" type="text/css" href="../../app-assets/css/themes/bordered-layout.css">
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="../../app-assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="../../app-assets/css/plugins/forms/form-quill-editor.css">
     <link rel="stylesheet" type="text/css" href="../../app-assets/css/plugins/extensions/ext-component-toastr.css">
     <link rel="stylesheet" type="text/css" href="../../app-assets/css/pages/app-email.css">
     <!-- END: Page CSS-->
 
-    <script src="../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
-    <script src="../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+    <script src="../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+    <script src="../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
 
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css/plugins/extensions/ext-component-sweet-alerts.css">
+    <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
@@ -78,7 +82,7 @@
                                 <label for="assunto">Assunto: </label>
                                 <input type="text" id="assunto" class="form-control" placeholder="Assunto" name="Assunto" />
                             </div>
-                            <textarea name="mensagem" id="mensagem" cols="80" rows="10" placeholder="Digite uma mensagem" style="margin-left: 20px; margin-top: 10px;"></textarea>
+                            <textarea class="form-control" name="mensagem" id="mensagem" cols="80" rows="10" placeholder="Digite uma mensagem" style="margin-left: 20px; margin-top: 10px;"></textarea>
                             <div class="compose-footer-wrapper">
                                 <div class="btn-wrapper d-flex align-items-center">
                                     <div class="btn-group dropup mr-1">
@@ -118,6 +122,7 @@
     <script src="../../app-assets/js/core/app.js"></script>
     <!-- END: Theme JS-->
 
+
     <!-- BEGIN: Page JS-->
     <script src="../../app-assets/js/scripts/pages/app-email.js"></script>
     <!-- END: Page JS-->
@@ -141,7 +146,7 @@
     $(document).ready(function() {
 
         $("#enviar").click(function(e) {
-            
+
             var email = document.getElementById('email').value;
             var assunto = document.getElementById('assunto').value;
             var mensagem = document.getElementById('mensagem').value;
@@ -155,7 +160,35 @@
                 data: dados,
                 success: function(result) {
 
-                   console.log(result);
+                    var data = result.split("||");
+                    var status = data[0];
+
+                    if (status == 'success') {
+
+                        Swal.fire({
+                            title: '<div><span style="font-weight:bold;color:black">Concluido!</span><div>',
+                            html: data[1],
+                            icon: status,
+                            width: '900px',
+                            customClass: {
+                                confirmButton: 'btn btn-primary'
+                            },
+                            buttonsStyling: false
+                        })
+
+                    } else {
+
+                        Swal.fire({
+                            title: '<div><span style="font-weight:bold;color:black">Atenção!</span><div>',
+                            html: data[1],
+                            icon: status,
+                            width: '900px',
+                            customClass: {
+                                confirmButton: 'btn btn-primary'
+                            },
+                            buttonsStyling: false
+                        })
+                    }
 
                 },
             });

@@ -1,7 +1,6 @@
 <?php
 
-require_once('../../inc/class.mail.php');
-
+//require_once('../../inc/class.mail.php');
 
 if(isset($_POST['email'])){
     if($_POST['email']==''){
