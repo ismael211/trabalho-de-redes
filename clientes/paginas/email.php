@@ -163,12 +163,14 @@
                     var data = result.split("||");
                     var status = data[0];
 
+                    alert(status);
+
                     if (status == 'success') {
 
                         Swal.fire({
                             title: '<div><span style="font-weight:bold;color:black">Concluido!</span><div>',
                             html: data[1],
-                            icon: status,
+                            icon: 'success',
                             width: '900px',
                             customClass: {
                                 confirmButton: 'btn btn-primary'
@@ -181,7 +183,7 @@
                         Swal.fire({
                             title: '<div><span style="font-weight:bold;color:black">Atenção!</span><div>',
                             html: data[1],
-                            icon: status,
+                            icon: 'error',
                             width: '900px',
                             customClass: {
                                 confirmButton: 'btn btn-primary'
