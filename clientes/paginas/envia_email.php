@@ -14,7 +14,13 @@ if(isset($_POST['email'])){
         $assunto = $_POST['assunto'];
         $mensagem = $_POST['mensagem'];
 
-        envia_Email($email, $assunto, $mensagem);
+        $result_email = envia_Email($email, $assunto, $mensagem);
+
+        if($result_email == 'ok'){
+            echo 'success||Email enviado com sucesso.';
+        }else{
+            echo 'error||Falha ao enviar email.';
+        }
     }
 
 }else{

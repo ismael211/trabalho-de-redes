@@ -25,7 +25,7 @@ function envia_Email($email, $assunto, $mensagem)
 	$mail = new PHPMailer();
 	$mail->IsSMTP();
 	$mail->CharSet = 'UTF-8';
-	$mail->Host = 'srv1br.com.br';
+	$mail->Host = 'smtp.gmail.com';
 	$mail->SMTPAuth = true;
 	$mail->Port = '587'; // Or 587
 	$mail->Username = $account;
