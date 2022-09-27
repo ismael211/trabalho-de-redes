@@ -15,9 +15,9 @@ function envia_Email($email, $assunto, $mensagem)
 	$core = new IsistemCore();
 	$core->Connect();
 
-	$account = 'ciaengsoftware@gmail.com';
+	$account = 'caiobes@2020.com.br';
 	$password = 'WTkRXxwBSw4dy59';
-	$from = 'ciaengsoftware@gmail.com';
+	$from = 'caiobes@2020.com.br';
 	$from_name = 'GRUPO CIA';
 	$msg = $mensagem; // HTML message
 	$subject = $assunto;
@@ -25,9 +25,9 @@ function envia_Email($email, $assunto, $mensagem)
 	$mail = new PHPMailer();
 	$mail->IsSMTP();
 	$mail->CharSet = 'UTF-8';
-	$mail->Host = 'smtp.gmail.com';
+	$mail->Host = 'localhost';
 	$mail->SMTPAuth = true;
-	$mail->Port = '587'; // Or 587
+	$mail->Port = '25'; // Or 587
 	$mail->Username = $account;
 	$mail->Password = $password;
 	$mail->SMTPSecure = 'ssl';
