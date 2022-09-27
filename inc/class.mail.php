@@ -16,7 +16,7 @@ function envia_Email($email, $assunto, $mensagem)
 	$core->Connect();
 
 	$account = 'caiobes@2020.com.br';
-	$password = 'WTkRXxwBSw4dy59';
+	$password = '123456';
 	$from = 'caiobes@2020.com.br';
 	$from_name = 'GRUPO CIA';
 	$msg = $mensagem; // HTML message
